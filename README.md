@@ -165,5 +165,5 @@ sudo dnsmasq --test
 
 [2]https://www.howtogeek.com/197268/how-to-find-the-best-wi-fi-channel-for-your-router-on-any-operating-system/
 
-
-
+### Contact Information
+* Email: vachanpatel2@gmail.com
