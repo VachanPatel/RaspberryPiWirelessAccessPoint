@@ -1,9 +1,9 @@
 # Setting up a Raspberry Pi 3 as a Wireless Access Point
 
 ### What you will need:
-Raspberry Pi 3 (with onboard wifi)
-Ethernet cable and accessible port (if you would like to be able to use the internet)
-It is recommended that you have heat sinks applied to your Raspberry Pi as the CPU will get hot over long periods of use
+* Raspberry Pi 3 (with onboard wifi)
+* Ethernet cable and accessible port (if you would like to be able to use the internet)
+* **It is recommended that you have heat sinks applied to your Raspberry Pi as the CPU will get hot over long periods of use**
 
 ### Setup:
 First you should update your Raspberry Pi. This can be done by running the following commands:
@@ -17,21 +17,21 @@ Then you can install the required modules with the command:
 ```
 sudo apt-get install dnsmasq hostapd
 ```
-Edit the /etc/dhcpcd.conf file by using the command:
+Edit the **/etc/dhcpcd.conf** file by using the command:
 ```
 sudo nano /etc/dhcpcd.conf
 ```
-Add the following lines to the /etc/dhcpcd.conf file:
+Add the following lines to the **/etc/dhcpcd.conf** file:
 ```
 interface wlan0
 static ip_address=192.168.4.1/24
 ```
 
-Next we will edit the /etc/dnsmasq.conf file by entering the command:
+Next we will edit the **/etc/dnsmasq.conf** file by entering the command:
 ```
 sudo nano /etc/dnsmasq.conf
 ```
-Add the following lines to the /etc/dnsmasq.conf file:
+Add the following lines to the **/etc/dnsmasq.conf** file:
 ```
 interface=wlan0
 dhcp-range=192.168.4.8,192.168.4.250,255.255.255.0,12h
@@ -39,11 +39,11 @@ dhcp-range=192.168.4.8,192.168.4.250,255.255.255.0,12h
 
 
 
-Now we will edit the /etc/hostapd/hostapd.conf by entering the command:
+Now we will edit the **/etc/hostapd/hostapd.conf** by entering the command:
 ```
 sudo nano /etc/hostapd/hostapd.conf
 ```
-Add the following lines to the /etc/hostapd/hostapd.conf file:
+Add the following lines to the **/etc/hostapd/hostapd.conf** file:
 ```
 interface=wlan0
 driver=nl80211
@@ -60,26 +60,26 @@ wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
 rsn_pairwise=CCMP
 ```
-You can replace the ssid and wpa_passphrase with whatever you would like to make the wifi name and password.
-Ignore_broadcast_ssid can be changed from 0 to 1 to prevent the network from being broadcasted. This way you will be required to know the ssid to connect to the network.
-The channel number may vary depending on your situation. The best channel to use is the one with the least amount of other wifi networks using it. Refer to this guide for more information on how to find the best wifi channel.
+* You can replace the ssid and wpa_passphrase with whatever you would like to make the wifi name and password.
+* Ignore_broadcast_ssid can be changed from 0 to 1 to prevent the network from being broadcasted. This way you will be required to know the ssid to connect to the network.
+* The channel number may vary depending on your situation. The best channel to use is the one with the least amount of other wifi networks using it. Refer to [this link](https://docs.google.com/document/d/1lRwgjD9J2gTaqkj3PUsFFV98LAx1LIREFeMcXqNHJUE/edit?usp=sharing) for more information on how to find the best wifi channel.
 
-Next we will need to edit the /etc/default/hostapd file by entering the command:
+Next we will need to edit the **/etc/default/hostapd** file by entering the command:
 ```
 sudo nano /etc/default/hostapd
 ```
-Find and edit the following line in the /etc/default/hostapd file to match this:
+Find and edit the following line in the **/etc/default/hostapd** file to match this:
 ```
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 ```
-Make sure you uncomment this line as well by deleting the # before the line.
+**Make sure you uncomment this line as well by deleting the # before the line**
 
-Next edit the file /etc/sysctl.conf with the command:
+Next edit the file **/etc/sysctl.conf** with the command:
 ```
 sudo nano /etc/sysctl.conf
 ```
 
-Find the following line in the /etc/sysctl.conf file and uncomment it:
+Find the following line in the **/etc/sysctl.conf** file and uncomment it:
 ```
 net.ipv4.ip_forward=1
 ```
@@ -97,7 +97,7 @@ Next, to ensure this starts up every time, enter the following command:
 ```
 sudo nano /etc/rc.local
 ```
-In the /etc/rc.local file, add the following line above the exit 0 code.
+In the **/etc/rc.local file**, add the following line above the exit 0 code.
 ```
 iptables-restore < /etc/iptables.ipv4.nat
 ```
