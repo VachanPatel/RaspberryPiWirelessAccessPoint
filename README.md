@@ -60,9 +60,9 @@ wpa_key_mgmt=WPA-PSK
 wpa_pairwise=TKIP
 rsn_pairwise=CCMP
 ```
-* You can replace the ssid and wpa_passphrase with whatever you would like to make the wifi name and password.
+* You can replace the ssid and wpa_passphrase with whatever you would like to make the wifi name and password. The password must be 8 characters or more in length in order to work.
 * Ignore_broadcast_ssid can be changed from 0 to 1 to prevent the network from being broadcasted. This way you will be required to know the ssid to connect to the network.
-* The channel number may vary depending on your situation. The best channel to use is the one with the least amount of other wifi networks using it. Refer to [this link](https://docs.google.com/document/d/1lRwgjD9J2gTaqkj3PUsFFV98LAx1LIREFeMcXqNHJUE/edit?usp=sharing) for more information on how to find the best wifi channel.
+* The channel number may vary depending on your situation. The best channel to use is the one with the least amount of other wifi networks using it. Refer to [this guide](https://docs.google.com/document/d/1lRwgjD9J2gTaqkj3PUsFFV98LAx1LIREFeMcXqNHJUE/edit?usp=sharing) for more information on how to find the best wifi channel.
 
 Next we will need to edit the **/etc/default/hostapd** file by entering the command:
 ```
@@ -137,28 +137,6 @@ sudo dnsmasq --test
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ### Helpful Links
 
 [1]https://www.raspberrypi.org/forums/viewtopic.php?t=193228
@@ -166,4 +144,4 @@ sudo dnsmasq --test
 [2]https://www.howtogeek.com/197268/how-to-find-the-best-wi-fi-channel-for-your-router-on-any-operating-system/
 
 ### Contact Information
-* Email: vachanpatel2@gmail.com
+Email: vachanpatel2@gmail.com
