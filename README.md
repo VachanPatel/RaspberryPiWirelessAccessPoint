@@ -72,7 +72,7 @@ Find and edit the following line in the **/etc/default/hostapd** file to match t
 ```
 DAEMON_CONF="/etc/hostapd/hostapd.conf"
 ```
-**Make sure you uncomment this line as well by deleting the # before the line**
+**Make sure you uncomment this line by deleting the # before the line**
 
 Next edit the file **/etc/sysctl.conf** with the command:
 ```
